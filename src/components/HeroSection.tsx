@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Download, Mail } from "lucide-react";
+import { ArrowDown, Download, ExternalLink, Mail } from "lucide-react";
 
 const HeroSection = () => {
   return (
@@ -24,8 +24,8 @@ const HeroSection = () => {
               Hey, I'm
             </p>
             <h1 className="text-6xl md:text-8xl font-bold tracking-tight">
-              <span className="text-gradient-primary">Alex</span>{" "}
-              <span className="text-gradient-secondary">Chen</span>
+              <span className="text-gradient-primary">Abhay</span>{" "}
+              <span className="text-gradient-secondary">Singh</span>
             </h1>
           </div>
 
@@ -56,14 +56,20 @@ const HeroSection = () => {
               <span className="relative z-10">View My Work</span>
             </Button>
             
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="btn-premium-secondary group"
-            >
-              <Download className="mr-2 h-5 w-5" />
-              <span className="relative z-10">Download Resume</span>
-            </Button>
+            <a 
+             href="https://drive.google.com/file/d/1_zHOVnXH3WuXpNUl4Xa-D1XOeNoNmN05/view?usp=sharing" 
+             target="_blank" 
+             rel="noopener noreferrer"
+           >
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="btn-premium-secondary group"
+              >
+                <ExternalLink className="mr-2 h-5 w-5" />
+                <span className="relative z-10">View Resume</span>
+              </Button>
+            </a>
           </div>
 
           {/* Quick contact */}
@@ -74,7 +80,7 @@ const HeroSection = () => {
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               <Mail className="mr-2 h-4 w-4" />
-              alex.chen@example.com
+              abhaysinghjprk6@gmail.com
             </Button>
           </div>
         </div>

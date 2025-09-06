@@ -22,6 +22,8 @@ const caseStudies = [
     gradient: "gradient-primary",
     glowClass: "glow-primary",
     tags: ["System Design", "Microservices", "AWS", "Kafka"],
+    liveDemoUrl: "",
+    codeUrl: "",
     star: {
       situation: "Nike needed real-time inventory visibility across 200+ stores and online channels, handling 10M+ SKUs with high availability requirements.",
       task: "Design a scalable system architecture that could handle peak loads of 100K requests/second during product launches while maintaining 99.9% uptime.",
@@ -38,6 +40,8 @@ const caseStudies = [
     gradient: "gradient-secondary",
     glowClass: "glow-secondary",
     tags: ["Java Spring Boot", "Redis", "Kubernetes", "PostgreSQL"],
+    liveDemoUrl: "https://tiny-lane.duckdns.org",
+    codeUrl: "",
     star: {
       situation: "Startup needed a URL shortener service to compete with bit.ly, requiring sub-100ms response times and advanced analytics.",
       task: "Build a scalable system capable of handling 10M requests/day, with custom domains, analytics dashboard, and 99.95% uptime SLA.",
@@ -54,6 +58,8 @@ const caseStudies = [
     gradient: "gradient-accent", 
     glowClass: "glow-accent",
     tags: ["React", "TypeScript", "AWS CloudFront", "SEO"],
+    liveDemoUrl: "https://preview--vector-digital-launchpad.lovable.app/",
+    codeUrl: "", 
     star: {
       situation: "Marketing agency's website had 3% conversion rate and slow loading times, losing potential clients to competitors.",
       task: "Redesign and rebuild the website to improve conversion rates, reduce bounce rate, and establish the agency as an industry leader.",
@@ -119,15 +125,23 @@ const CaseStudiesSection = () => {
                       </div>
 
                       {/* Action Buttons */}
-                      <div className="flex space-x-4 pt-4">
-                        <Button size="sm" className="btn-premium-primary">
-                          <ExternalLink className="mr-2 h-4 w-4" />
-                          <span className="relative z-10">Live Demo</span>
-                        </Button>
-                        <Button size="sm" variant="outline" className="border-glass-border hover:bg-glass">
-                          <Github className="mr-2 h-4 w-4" />
-                          Code
-                        </Button>
+                       <div className="flex space-x-4 pt-4">
+                        {study.liveDemoUrl && (
+                          <a href={study.liveDemoUrl} target="_blank" rel="noopener noreferrer">
+                            <Button size="sm" className="btn-premium-primary">
+                              <ExternalLink className="mr-2 h-4 w-4" />
+                              <span className="relative z-10">Live Demo</span>
+                            </Button>
+                          </a>
+                        )}
+                        {study.codeUrl && (
+                          <a href={study.codeUrl} target="_blank" rel="noopener noreferrer">
+                            <Button size="sm" variant="outline" className="border-glass-border hover:bg-glass">
+                              <Github className="mr-2 h-4 w-4" />
+                              Code
+                            </Button>
+                          </a>
+                        )}
                       </div>
                     </div>
 
@@ -188,10 +202,12 @@ const CaseStudiesSection = () => {
 
         {/* More Projects CTA */}
         <div className="text-center mt-16">
-          <Button size="lg" variant="outline" className="btn-premium-secondary">
-            <Github className="mr-2 h-5 w-5" />
-            <span className="relative z-10">View All Projects on GitHub</span>
-          </Button>
+          <a href="https://github.com/dynamicabhay/" target="_blank" rel="noopener noreferrer">
+            <Button size="lg" variant="outline" className="btn-premium-secondary">
+              <Github className="mr-2 h-5 w-5" />
+              <span className="relative z-10">View All Projects on GitHub</span>
+            </Button>
+          </a>
         </div>
       </div>
     </section>

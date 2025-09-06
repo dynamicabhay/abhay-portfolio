@@ -50,7 +50,7 @@ const ContactSection = () => {
                     onClick={() => window.open('mailto:alex.chen@example.com')}
                   >
                     <Mail className="mr-2 h-5 w-5" />
-                    <span className="relative z-10">alex.chen@example.com</span>
+                    <span className="relative z-10">abhaysinghjprk6@gmail.com</span>
                   </Button>
 
                   <Button 
@@ -76,7 +76,7 @@ const ContactSection = () => {
               <Card className="glass-card p-4 text-center">
                 <MapPin className="h-6 w-6 text-secondary mx-auto mb-2" />
                 <p className="text-sm font-medium text-text-primary">Location</p>
-                <p className="text-xs text-text-secondary">San Francisco, CA</p>
+                <p className="text-xs text-text-secondary">Jaipur, Rajasthan</p>
               </Card>
             </div>
 
@@ -133,13 +133,18 @@ const ContactSection = () => {
                   </p>
                 </div>
 
-                <Button size="lg" className="btn-premium-secondary group">
-                  <Download className="mr-2 h-5 w-5" />
-                  <span className="relative z-10">Resume.pdf</span>
-                </Button>
+                <a 
+                  href="https://drive.google.com/uc?export=download&id=1_zHOVnXH3WuXpNUl4Xa-D1XOeNoNmN05"
+                  download="Abhay-Singh-Resume.pdf"
+                >
+                  <Button size="lg" className="btn-premium-secondary group">
+                    <Download className="mr-2 h-5 w-5" />
+                    <span className="relative z-10">Download PDF</span>
+                  </Button>
+                </a>
 
                 <div className="text-sm text-text-muted">
-                  Last updated: December 2024 • 2 pages
+                  Last updated: September 2025
                 </div>
               </div>
             </Card>
@@ -190,7 +195,12 @@ const ContactSection = () => {
             <p className="text-text-secondary">
               From concept to deployment, I'll help bring your ideas to life with modern, scalable solutions.
             </p>
-            <Button size="lg" className="btn-premium-primary">
+             <Button 
+              size="lg" 
+              className="btn-premium-primary"
+              onClick={() => window.open('mailto:abhaysinghjprk6@gmail.com')}
+            >
+              <Mail className="mr-2 h-5 w-5" />
               <span className="relative z-10">Start a Conversation</span>
             </Button>
           </div>
