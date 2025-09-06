@@ -1,42 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Premium Portfolio Design System */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Midnight Gradient Base Colors */
+    --background: 240 15% 4%;          /* Deep midnight */
+    --background-secondary: 245 20% 8%; /* Slightly lighter midnight */
+    --foreground: 210 40% 98%;         /* Clean white text */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Card System */
+    --card: 240 15% 6%;                /* Glass card base */
+    --card-secondary: 245 18% 10%;     /* Elevated cards */
+    --card-foreground: 210 40% 98%;
+    --card-border: 240 15% 15%;        /* Subtle borders */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Premium Accent Colors */
+    --primary: 165 100% 58%;           /* Aqua green #3df2c2 */
+    --primary-foreground: 240 15% 4%;
+    --primary-glow: 165 100% 65%;      /* Brighter aqua for glows */
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --secondary: 320 100% 70%;         /* Magenta #ff5ca2 */
+    --secondary-foreground: 240 15% 4%;
+    --secondary-glow: 320 100% 75%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --accent: 200 100% 65%;            /* Sky blue #47a8f5 */
+    --accent-foreground: 240 15% 4%;
+    --accent-glow: 200 100% 70%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Glass & Effects */
+    --glass: 240 15% 10% / 0.6;        /* Glassmorphism background */
+    --glass-border: 210 40% 98% / 0.1; /* Glass borders */
+    --glow-primary: 165 100% 58% / 0.3; /* Neon glow effects */
+    --glow-secondary: 320 100% 70% / 0.3;
+    --glow-accent: 200 100% 65% / 0.3;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Typography */
+    --text-primary: 210 40% 98%;       /* Main text */
+    --text-secondary: 210 20% 75%;     /* Secondary text */
+    --text-muted: 210 15% 60%;         /* Muted text */
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Gradients */
+    --gradient-midnight: linear-gradient(135deg, hsl(250 25% 8%), hsl(240 15% 4%), hsl(235 20% 2%));
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-glow)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-glow)));
+    --gradient-glass: linear-gradient(135deg, hsl(var(--glass)), hsl(240 15% 12% / 0.4));
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Shadows & Glows */
+    --shadow-premium: 0 25px 50px -12px hsl(240 15% 2% / 0.8);
+    --shadow-glass: 0 8px 32px hsl(240 15% 2% / 0.6), inset 0 1px 0 hsl(210 40% 98% / 0.1);
+    --glow-sm: 0 0 20px hsl(var(--glow-primary));
+    --glow-md: 0 0 40px hsl(var(--glow-primary));
+    --glow-lg: 0 0 80px hsl(var(--glow-primary));
 
-    --radius: 0.5rem;
+    /* Animations */
+    --transition-premium: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-glow: box-shadow 0.3s ease, transform 0.3s ease;
+
+    --radius: 1rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +126,145 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-space-grotesk;
+    background: var(--gradient-midnight);
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  /* Glass Card Effects */
+  .glass-card {
+    @apply rounded-2xl border backdrop-blur-xl;
+    background: hsl(var(--glass));
+    border-color: hsl(var(--glass-border));
+    box-shadow: var(--shadow-glass);
+  }
+
+  .glass-card-elevated {
+    @apply glass-card;
+    background: hsl(var(--card-secondary));
+    box-shadow: var(--shadow-premium), var(--shadow-glass);
+  }
+
+  /* Glow Effects */
+  .glow-primary {
+    box-shadow: var(--glow-md);
+    transition: var(--transition-glow);
+  }
+
+  .glow-primary:hover {
+    box-shadow: var(--glow-lg);
+    transform: translateY(-2px);
+  }
+
+  .glow-secondary {
+    box-shadow: 0 0 40px hsl(var(--glow-secondary));
+    transition: var(--transition-glow);
+  }
+
+  .glow-secondary:hover {
+    box-shadow: 0 0 80px hsl(var(--glow-secondary));
+    transform: translateY(-2px);
+  }
+
+  .glow-accent {
+    box-shadow: 0 0 40px hsl(var(--glow-accent));
+    transition: var(--transition-glow);
+  }
+
+  .glow-accent:hover {
+    box-shadow: 0 0 80px hsl(var(--glow-accent));
+    transform: translateY(-2px);
+  }
+
+  /* Text Gradients */
+  .text-gradient-primary {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-secondary {
+    background: var(--gradient-secondary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-accent {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Animated Background */
+  .animated-gradient {
+    background: var(--gradient-midnight);
+    background-size: 300% 300%;
+    animation: gradient-shift 8s ease infinite;
+  }
+
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Premium Button Styles */
+  .btn-premium-primary {
+    @apply relative overflow-hidden rounded-xl px-8 py-4 font-semibold transition-all duration-300;
+    background: var(--gradient-primary);
+    color: hsl(var(--primary-foreground));
+    box-shadow: var(--glow-md);
+  }
+
+  .btn-premium-primary:hover {
+    box-shadow: var(--glow-lg);
+    transform: translateY(-3px);
+  }
+
+  .btn-premium-primary::before {
+    @apply absolute inset-0 opacity-0 transition-opacity duration-300;
+    content: '';
+    background: linear-gradient(135deg, hsl(var(--primary-glow)), hsl(var(--primary)));
+  }
+
+  .btn-premium-primary:hover::before {
+    opacity: 1;
+  }
+
+  .btn-premium-secondary {
+    @apply relative overflow-hidden rounded-xl px-8 py-4 font-semibold transition-all duration-300;
+    background: var(--gradient-secondary);
+    color: hsl(var(--secondary-foreground));
+    box-shadow: 0 0 40px hsl(var(--glow-secondary));
+  }
+
+  .btn-premium-secondary:hover {
+    box-shadow: 0 0 80px hsl(var(--glow-secondary));
+    transform: translateY(-3px);
+  }
+
+  /* Skill Card Animations */
+  .skill-card {
+    @apply glass-card p-6 transition-all duration-500 hover:scale-105;
+    transform-style: preserve-3d;
+  }
+
+  .skill-card:hover {
+    box-shadow: var(--shadow-premium), var(--glow-md);
+  }
+
+  .skill-card::before {
+    @apply absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300;
+    content: '';
+    background: var(--gradient-glass);
+  }
+
+  .skill-card:hover::before {
+    opacity: 1;
   }
 }
