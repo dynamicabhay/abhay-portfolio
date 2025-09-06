@@ -1,5 +1,5 @@
 import HeroSection from "@/components/HeroSection";
-import SkillsSection from "@/components/SkillsSection";
+import DraggableSkillsSection from "@/components/DraggableSkillsSection";
 import CaseStudiesSection from "@/components/CaseStudiesSection";
 import ContactSection from "@/components/ContactSection";
 
@@ -9,8 +9,8 @@ const Index = () => {
       {/* Hero Section */}
       <HeroSection />
       
-      {/* Skills & Technologies */}
-      <SkillsSection />
+      {/* Interactive Skills Playground */}
+      <DraggableSkillsSection />
       
       {/* Case Studies */}
       <CaseStudiesSection />
