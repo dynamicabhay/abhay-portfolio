@@ -32,6 +32,11 @@
     --accent-foreground: 240 15% 4%;
     --accent-glow: 200 100% 70%;
 
+    /* Borders & UI Elements */
+    --border: 240 15% 15%;             /* General borders */
+    --input: 240 15% 15%;              /* Input borders */
+    --ring: 165 100% 58%;              /* Focus rings */
+
     /* Glass & Effects */
     --glass: 240 15% 10% / 0.6;        /* Glassmorphism background */
     --glass-border: 210 40% 98% / 0.1; /* Glass borders */
