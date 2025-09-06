@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <!-- Midnight gradient background -->
+    <radialGradient id="bgGradient" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#1a1a2e" />
+      <stop offset="100%" stop-color="#0a0f1c" />
+    </radialGradient>
+
+    <!-- Neon gradient stroke for hexagon -->
+    <linearGradient id="neonGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3df2c2" />
+      <stop offset="50%" stop-color="#47a8f5" />
+      <stop offset="100%" stop-color="#ff5ca2" />
+    </linearGradient>
+
+    <!-- Glow effect -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100" height="100" fill="url(#bgGradient)" />
+
+  <!-- Hexagon -->
+  <polygon points="50,5 93,27 93,73 50,95 7,73 7,27"
+    stroke="url(#neonGradient)"
+    stroke-width="4"
+    fill="none"
+    filter="url(#glow)" />
+
+  <!-- Curly braces -->
+  <text x="50" y="60" text-anchor="middle" font-family="'Courier New', monospace"
+    font-size="38" fill="url(#neonGradient)" filter="url(#glow)">{ }</text>
+</svg>
